@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión | Papelería Copy Copy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <main class="escena">
+    <section class="hoja" aria-labelledby="titulo">
+
+      <header class="hoja__cabecera">
+        <p class="marca" aria-label="Papelería Copy Copy">
+          <span class="marca__nombre">Copy Copy</span>
+          <span class="marca__copia" aria-hidden="true">Copy Copy</span>
+        </p>
+        <p class="marca__detalle">Papelería y fotocopiado</p>
+      </header>
+
+      <h1 id="titulo" class="hoja__titulo">Iniciar sesión</h1>
+      <p class="hoja__ayuda">Entra con tu usuario para registrar ventas y revisar el inventario.</p>
+
+      <form class="formulario" action="panel.html" method="get">
+
+        <div class="campo">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" autocomplete="username" required>
+        </div>
+
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input type="password" id="clave" name="clave" autocomplete="current-password" required>
+        </div>
+
+        <div class="formulario__extra">
+          <label class="recordar">
+            <input type="checkbox" name="recordar">
+            <span>Mantener sesión en este equipo</span>
+          </label>
+          <a class="enlace" href="#">Olvidé mi contraseña</a>
+        </div>
+
+        <button type="submit" class="boton">Entrar al sistema</button>
+      </form>
+
+    </section>
+  </main>
+
+</body>
+</html>

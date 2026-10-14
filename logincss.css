@@ -1,0 +1,248 @@
+/* ===== Copy Copy · Ventana 1: Inicio de sesión ===== */
+
+:root {
+  --fondo: #e8eef7;
+  --cuadricula: #cdd8ea;
+  --hoja: #ffffff;
+  --tinta: #1d2f6f;
+  --texto: #1b1f2a;
+  --texto-suave: #4d5670;
+  --resaltador: #ffe45c;
+  --linea: #b9c5de;
+  --fuente: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--texto);
+  background-color: var(--fondo);
+  /* hoja cuadriculada de cuaderno */
+  background-image:
+    linear-gradient(var(--cuadricula) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cuadricula) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.escena {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  isolation: isolate;
+}
+
+/* ----- La hoja y su "copia" detrás ----- */
+
+.hoja {
+  position: relative;
+  width: 100%;
+  max-width: 26rem;
+  padding: 2rem 2rem 2.25rem;
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+}
+
+.hoja::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  transform: translate(0.9rem, 0.9rem) rotate(1.4deg);
+}
+
+/* ----- Marca ----- */
+
+.hoja__cabecera {
+  margin-bottom: 1.75rem;
+}
+
+.marca {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--tinta);
+}
+
+.marca__nombre {
+  position: relative;
+}
+
+.marca__copia {
+  position: absolute;
+  left: 0.22rem;
+  top: 0.22rem;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--tinta);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.marca__detalle {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ----- Título ----- */
+
+.hoja__titulo {
+  margin: 0 0 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hoja__ayuda {
+  margin: 0 0 1.5rem;
+  max-width: 34ch;
+  color: var(--texto-suave);
+}
+
+/* ----- Formulario ----- */
+
+.formulario {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.campo {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* campos como renglón de cuaderno */
+.campo input {
+  width: 100%;
+  padding: 0.55rem 0.15rem;
+  font: inherit;
+  color: var(--texto);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--linea);
+  border-radius: 0;
+  transition: border-color 0.15s;
+}
+
+.campo input:hover {
+  border-bottom-color: var(--tinta);
+}
+
+.campo input:focus-visible {
+  outline: 0;
+  border-bottom-color: var(--tinta);
+  background: linear-gradient(transparent 55%, rgba(255, 228, 92, 0.55) 55%);
+}
+
+.formulario__extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.recordar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.recordar input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--tinta);
+}
+
+.enlace {
+  color: var(--tinta);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.enlace:hover {
+  background: var(--resaltador);
+}
+
+.enlace:focus-visible,
+.recordar input:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+/* ----- Botón: resaltador ----- */
+
+.boton {
+  padding: 0.8rem 1.25rem;
+  font: inherit;
+  font-weight: 800;
+  color: var(--tinta);
+  background: var(--resaltador);
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--tinta);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.boton:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--tinta);
+}
+
+.boton:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 4px;
+}
+
+/* ----- Móvil ----- */
+
+@media (max-width: 30rem) {
+  .hoja {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .hoja::before {
+    transform: translate(0.5rem, 0.5rem) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
