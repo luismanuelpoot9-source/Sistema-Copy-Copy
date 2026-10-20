@@ -1,12 +1,257 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Papeleria Copy Copy - Inventario</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <h1>Sistema Papelería Copy Copy</h1>
+    <h2>Control de Inventario</h2>
+
+    <fieldset>
+        <legend><b>Agregar Nuevo Producto</b></legend>
+        <form id="product-form">
+            <label>Código:</label>
+            <input type="text" id="codigo" required placeholder="Ej. PAP-003">
+            
+            <label>Nombre:</label>
+            <input type="text" id="nombre" required placeholder="Nombre del producto">
+            
+            <label>Categoría:</label>
+            <input type="text" id="categoria" required placeholder="Ej. Escritura">
+            
+            <label>Unidades:</label>
+            <input type="number" id="unidades" required min="0" value="10">
+            
+            <button type="submit">Guardar Producto</button>
+        </form>
+    </fieldset>
+
+    <br>
+
+    <div>
+        <input type="text" id="search-input" placeholder="Buscar producto...">
+    </div>
+
+    <br>
+
+    <table border="1" id="inventory-table" width="100%">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Unidades</th>
+                <th>Estado</th>
+                <th>Fecha actual</th>
+                <th>Favorito</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>PAP-001</td>
+                <td>Paquete de Hojas Blancas Carta (500 hojas)</td>
+                <td>Papel y Cuadernos</td>
+                <td>45</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>PAP-002</td>
+                <td>Cuaderno Profesional Raya (100 hojas)</td>
+                <td>Papel y Cuadernos</td>
+                <td>30</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>PAP-003</td>
+                <td>Libreta de Dibujo / Sketchbook</td>
+                <td>Papel y Cuadernos</td>
+                <td>12</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>PAP-004</td>
+                <td>Block de Notas Adhesivas (Post-it)</td>
+                <td>Papel y Cuadernos</td>
+                <td>0</td>
+                <td>Agotado</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ESC-001</td>
+                <td>Bolígrafo Punto Medio Azul (Caja 12 pzas)</td>
+                <td>Escritura</td>
+                <td>20</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ESC-002</td>
+                <td>Lápiz del No. 2 / HB (Caja 12 pzas)</td>
+                <td>Escritura</td>
+                <td>15</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ESC-003</td>
+                <td>Marcador Resaltador Amarillo</td>
+                <td>Escritura</td>
+                <td>8</td>
+                <td>Poco Stock</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ESC-004</td>
+                <td>Borrador de Migajón Blanco</td>
+                <td>Escritura</td>
+                <td>25</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ESC-005</td>
+                <td>Sacapuntas de Metal con Depósito</td>
+                <td>Escritura</td>
+                <td>14</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ADH-001</td>
+                <td>Pegamento en Barra 21g</td>
+                <td>Pegamentos y Adhesivos</td>
+                <td>25</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ADH-002</td>
+                <td>Cinta Adhesiva Transparente (18mm x 33m)</td>
+                <td>Pegamentos y Adhesivos</td>
+                <td>12</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ADH-003</td>
+                <td>Pegamento Blanco Líquido 250ml</td>
+                <td>Pegamentos y Adhesivos</td>
+                <td>4</td>
+                <td>Poco Stock</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>COR-001</td>
+                <td>Tijeras Escolares 5" Punto Roma</td>
+                <td>Corte y Medición</td>
+                <td>3</td>
+                <td>Poco Stock</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>COR-002</td>
+                <td>Regla de Plástico Flexible 30 cm</td>
+                <td>Corte y Medición</td>
+                <td>18</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>COR-003</td>
+                <td>Cutter / Cuchilla de Corte Escolar</td>
+                <td>Corte y Medición</td>
+                <td>2</td>
+                <td>Poco Stock</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>OFIC-001</td>
+                <td>Folder Tamaño Carta Manila (Paquete 25 pzas)</td>
+                <td>Oficina y Archivo</td>
+                <td>0</td>
+                <td>Agotado</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>OFIC-002</td>
+                <td>Clips Metálicos para Papel (Caja 100 pzas)</td>
+                <td>Oficina y Archivo</td>
+                <td>40</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>OFIC-003</td>
+                <td>Perforadora de Papel de 2 Orificios</td>
+                <td>Oficina y Archivo</td>
+                <td>5</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ART-001</td>
+                <td>Pintura Acrílica Colores Variados (Frasco 60ml)</td>
+                <td>Arte y Manualidades</td>
+                <td>16</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+            <tr>
+                <td>ART-002</td>
+                <td>Juego de 12 Lápices de Colores</td>
+                <td>Arte y Manualidades</td>
+                <td>22</td>
+                <td>Disponible</td>
+                <td>19/10/2026</td>
+                <td><button onclick="toggleFav(this)">☆</button></td>
+                <td><button onclick="quitarFila(this)">Quitar</button></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
