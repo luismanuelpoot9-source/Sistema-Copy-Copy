@@ -1,0 +1,77 @@
+/* Movimiento y respuesta visual para todas las pantallas. */
+button,
+.barra-principal__enlaces a,
+.accesos-menu a,
+.resumen article {
+  transition: transform 180ms ease, box-shadow 180ms ease,
+    background-color 180ms ease, border-color 180ms ease;
+}
+
+@media (hover: hover) {
+  .barra-principal__enlaces a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 0 var(--tinta);
+  }
+
+  .accesos-menu a:hover,
+  .resumen article:hover {
+    transform: translate(-3px, -4px);
+    box-shadow: 7px 8px 0 var(--tinta);
+  }
+
+  .pagina-sistema button:not(:disabled):hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--tinta);
+  }
+}
+
+.pagina-sistema button:not(:disabled):active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+input, select {
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.pagina-sistema input:focus,
+.pagina-sistema select:focus {
+  background-color: #fff9d8;
+  border-bottom-color: var(--tinta);
+}
+
+.pagina-sistema tbody tr {
+  transition: background-color 160ms ease;
+}
+
+.pagina-sistema tbody tr:hover {
+  background-color: #fff9d8;
+}
+
+#mensaje, #login-error {
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+
+#login-error {
+  padding: .75rem;
+  color: #7c2018;
+  background: #ffe2df;
+  border: 2px solid #7c2018;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

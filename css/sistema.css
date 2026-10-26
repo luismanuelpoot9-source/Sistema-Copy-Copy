@@ -1,0 +1,156 @@
+/* Complementos para las páginas que comparten el diseño de logincss.css. */
+.pagina-sistema {
+  height: auto;
+  min-height: 100vh;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.pagina-sistema h1,
+.pagina-sistema h2,
+.pagina-sistema h3,
+.pagina-sistema legend {
+  color: var(--tinta);
+}
+
+.pagina-sistema header,
+.pagina-sistema section,
+.pagina-sistema fieldset {
+  min-width: 0;
+  margin: 0 0 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+
+.pagina-sistema legend {
+  padding: 0.25rem 0.5rem;
+  background: var(--hoja);
+}
+
+.pagina-sistema nav {
+  margin-bottom: 1.5rem;
+  line-height: 2.5;
+}
+
+.pagina-sistema nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-sistema a {
+  color: var(--tinta);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.pagina-sistema a:hover {
+  background: var(--resaltador);
+}
+
+.pagina-sistema input,
+.pagina-sistema select {
+  max-width: 100%;
+  padding: 0.6rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--hoja);
+  border: 0;
+  border-bottom: 2px solid var(--linea);
+}
+
+.pagina-sistema label {
+  font-weight: 600;
+}
+
+.pagina-sistema button {
+  margin: 0.25rem;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  font-weight: 800;
+  color: var(--tinta);
+  background: var(--resaltador);
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 var(--tinta);
+  cursor: pointer;
+}
+
+.pagina-sistema button:hover {
+  transform: translateY(-1px);
+}
+
+.pagina-sistema :is(a, button, input, select):focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+#product-form {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+#product-form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.pagina-sistema table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+}
+
+.pagina-sistema th,
+.pagina-sistema td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.pagina-sistema th {
+  color: var(--tinta);
+  background: var(--resaltador);
+  border-bottom: 2px solid var(--tinta);
+}
+
+.pagina-sistema footer {
+  color: var(--texto-suave);
+}
+
+@media (max-width: 36rem) {
+  #product-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+[hidden] { display: none !important; }
+.pagina-sistema main { max-width: 90rem; margin: auto; }
+.resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.resumen article { background: var(--hoja); border: 2px solid var(--tinta); padding: 1.25rem; box-shadow: 4px 4px var(--tinta); }
+.resumen h2 { font-size: 1rem; margin: 0; }
+.resumen p, .total { font-size: 1.6rem; font-weight: 800; color: var(--tinta); }
+.filtros { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.filtros select { min-width: 0; max-width: 100%; }
+#mensaje { background: var(--resaltador); padding: 1rem; border: 2px solid var(--tinta); }
+#mensaje.error { background: #ffe2df; color: #7c2018; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+#productos, #carrito, #resultados { margin-top: 1rem; }
+@media print {
+  body.pagina-sistema { background: white; padding: 0; }
+  .barra-principal, .no-imprimir, #mensaje, footer, button { display: none !important; }
+  body[data-page="ventas"] main > :not(#ticket) { display: none !important; }
+  .pagina-sistema section, .resumen article { box-shadow: none; break-inside: avoid; }
+  .pagina-sistema table { display: table; font-size: 10pt; }
+}

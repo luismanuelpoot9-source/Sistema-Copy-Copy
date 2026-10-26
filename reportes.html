@@ -1,115 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Papeleria Copy Copy - Reportes</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reportes | Copy Copy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/logincss.css">
+<link rel="stylesheet" href="css/sistema.css">
+<link rel="stylesheet" href="css/navegacion.css">
+<script src="js/auth.js" defer></script>
+<script src="js/datos.js" defer></script>
+<script src="js/sistema.js" defer></script>
+<link rel="stylesheet" href="css/animaciones.css">
+<script src="js/estilos.js" defer></script>
+<link rel="stylesheet" href="css/iconos.css">
+<script src="js/iconos.js" defer></script>
 </head>
-
-<body>
-
-
-    
-    <!-- Encabezado principal -->
-    <header>
-        <h1>Papeleria Copy Copy</h1>
-        <p>Sistema de gestion administrativa</p>
-    </header>
-
-
-    <!-- Navegacion -->
-    <nav>
-        <a href="menu.html">Inicio</a> |
-        <a href="inventario.html">Inventario</a> |
-        <a href="ventas.html">Ventas</a> |
-        <a href="reportes.html">Reportes</a>
-    </nav>
-
-    <hr>
-
-
-
-    <!-- Contenido principal -->
-    <main>
-
-        <section>
-            <h2>Reportes del sistema</h2>
-            <p>
-                Consulta la informacion de ventas e inventario
-                para facilitar el control y la toma de decisiones.
-            </p>
-        </section>
-
-        <!-- Resumen general -->
-        <section>
-            <h3>Resumen general</h3>
-
-            <article>
-                <h4>Ventas del dia</h4>
-                <p>$0.00 MXN</p>
-            </article>
-
-            <article>
-                <h4>Productos vendidos</h4>
-                <p>0 productos</p>
-            </article>
-
-            <article>
-                <h4>Productos con bajas existencias</h4>
-                <p>0 productos</p>
-            </article>
-        </section>
-
-
-
-        <!-- busqueda -->
-        <section>
-            <h3>Consultar reportes</h3>
-
-            <form>
-                <label for="tipo">Tipo de reporte:</label>
-                <select id="tipo" name="tipo">
-                    <option value="">Seleccionar reporte</option>
-                    <option value="ventas">Reporte de ventas</option>
-                    <option value="inventario">Reporte de inventario</option>
-                    <option value="productos">Productos vendidos</option>
-                </select>
-
-                <br><br>
-
-                <label for="fechaInicio">Fecha inicial:</label>
-                <input type="date" id="fechaInicio" name="fechaInicio">
-
-                <br><br>
-
-                <label for="fechaFin">Fecha final:</label>
-                <input type="date" id="fechaFin" name="fechaFin">
-
-                <br><br>
-
-                <button type="button">Consultar reporte</button>
-                <button type="reset">Limpiar filtros</button>
-            </form>
-        </section>
-
-
-
-        <!-- Acciones adicionales -->
-        <section>
-            <h3>Acciones</h3>
-            <button type="button">Imprimir reporte</button>
-            <button type="button">Exportar a Excel</button>
-        </section>
-    </main>
-
-
-
-    <!-- Pie de pagina -->
-    <footer>
-        <hr>
-        <p>Papeleria Copy Copy | Sistema de gestion</p>
-        <p>Seccion de reportes</p>
-    </footer>
+<body class="pagina-sistema" data-page="reportes" hidden>
+<div class="barra-principal"><a class="barra-principal__marca" href="panel.html"><span class="logo-icono logo-icono--mini" aria-hidden="true"><img src="assets/copy.jpeg" alt=""></span>Copy Copy</a>
+<nav class="barra-principal__enlaces" aria-label="Navegación principal"><a href="panel.html"><img class="icono" src="assets/icons/home.svg" alt="" aria-hidden="true" width="20" height="20">Inicio</a><a href="menu.html"><img class="icono" src="assets/icons/grid.svg" alt="" aria-hidden="true" width="20" height="20">Menú</a><a href="inventario.html"><img class="icono" src="assets/icons/box.svg" alt="" aria-hidden="true" width="20" height="20">Inventario</a><a href="ventas.html"><img class="icono" src="assets/icons/cart.svg" alt="" aria-hidden="true" width="20" height="20">Ventas</a><a href="reportes.html" aria-current="page"><img class="icono" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="20" height="20">Reportes</a>
+</nav>
+<div><span id="sesion-usuario"></span> <button id="cerrar-sesion" type="button"><img class="icono" src="assets/icons/logout.svg" alt="" aria-hidden="true" width="20" height="20">Cerrar sesión</button>
+</div>
+</div>
+<p id="mensaje" role="status" aria-live="polite" hidden></p>
+<main>
+<h1>Reportes</h1>
+<div id="resumen" class="resumen">
+</div>
+<section class="no-imprimir">
+<h2>Consultar reportes</h2>
+<form id="report-form" class="filtros">
+<label for="tipo">Tipo de reporte</label>
+<select id="tipo"><option value="ventas">Ventas</option><option value="inventario">Inventario actual</option><option value="productos">Productos vendidos</option></select>
+<label for="fechaInicio">Fecha inicial</label>
+<input id="fechaInicio" type="date">
+<label for="fechaFin">Fecha final</label>
+<input id="fechaFin" type="date">
+<button>Consultar reporte</button>
+<button type="reset">Limpiar filtros</button>
+</form>
+<p>Las fechas filtran ventas y productos vendidos. El inventario muestra las existencias actuales.</p>
+</section>
+<section id="reporte">
+<h2 id="reporte-titulo">Ventas</h2>
+<p id="reporte-periodo"></p>
+<div id="resultados">
+</div>
+</section>
+<div class="no-imprimir">
+<button id="imprimir">Imprimir reporte</button>
+<button id="exportar">Exportar CSV para Excel</button>
+</div>
+</main>
+<footer>
+<p>Copy Copy · Datos guardados en este navegador · Acceso de demostración</p>
+</footer>
 </body>
 </html>

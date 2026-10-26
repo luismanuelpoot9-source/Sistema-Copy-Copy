@@ -1,0 +1,87 @@
+/* Barra compartida: enlaces directos que funcionan sin JavaScript. */
+.barra-principal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1rem clamp(1rem, 3vw, 2rem);
+  background: var(--hoja);
+  border-bottom: 2px solid var(--tinta);
+}
+
+.barra-principal .barra-principal__marca {
+  color: var(--tinta);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.barra-principal .barra-principal__enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.barra-principal__enlaces a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--tinta);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.barra-principal__enlaces a:hover,
+.barra-principal__enlaces a[aria-current="page"] {
+  background: var(--resaltador);
+  border-color: var(--tinta);
+}
+
+.barra-principal a:focus-visible,
+.accesos-menu a:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+.pagina-sistema > .barra-principal {
+  margin-bottom: 2rem;
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+
+.app.app--barra {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: auto;
+}
+
+.barra-principal ~ .escena {
+  min-height: calc(100vh - 6rem);
+}
+
+.accesos-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+
+.accesos-menu a {
+  padding: 1.25rem;
+  text-decoration: none;
+  border: 2px solid var(--tinta);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 var(--tinta);
+}
+
+@media (max-width: 40rem) {
+  .barra-principal .barra-principal__enlaces {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

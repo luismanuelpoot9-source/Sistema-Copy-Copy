@@ -1,22 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Papeleria Copy Copy - Menú Principal</title>
-    <link rel="stylesheet" href="menu.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menú | Copy Copy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/logincss.css">
+<link rel="stylesheet" href="css/sistema.css">
+<link rel="stylesheet" href="css/navegacion.css">
+<script src="js/auth.js" defer></script>
+<script src="js/datos.js" defer></script>
+<script src="js/sistema.js" defer></script>
+<link rel="stylesheet" href="css/animaciones.css">
+<script src="js/estilos.js" defer></script>
+<link rel="stylesheet" href="css/iconos.css">
+<script src="js/iconos.js" defer></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Indice</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Inventario</a></li>
-                <li><a href="#">Ventas</a></li>
-                <li><a href="#">Informes</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="pagina-sistema" data-page="menu" hidden>
+<div class="barra-principal"><a class="barra-principal__marca" href="panel.html"><span class="logo-icono logo-icono--mini" aria-hidden="true"><img src="assets/copy.jpeg" alt=""></span>Copy Copy</a>
+<nav class="barra-principal__enlaces" aria-label="Navegación principal"><a href="panel.html"><img class="icono" src="assets/icons/home.svg" alt="" aria-hidden="true" width="20" height="20">Inicio</a><a href="menu.html" aria-current="page"><img class="icono" src="assets/icons/grid.svg" alt="" aria-hidden="true" width="20" height="20">Menú</a><a href="inventario.html"><img class="icono" src="assets/icons/box.svg" alt="" aria-hidden="true" width="20" height="20">Inventario</a><a href="ventas.html"><img class="icono" src="assets/icons/cart.svg" alt="" aria-hidden="true" width="20" height="20">Ventas</a><a href="reportes.html"><img class="icono" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="20" height="20">Reportes</a>
+</nav>
+<div><span id="sesion-usuario"></span> <button id="cerrar-sesion" type="button"><img class="icono" src="assets/icons/logout.svg" alt="" aria-hidden="true" width="20" height="20">Cerrar sesión</button>
+</div>
+</div>
+<p id="mensaje" role="status" aria-live="polite" hidden></p>
+<main>
+<section>
+<h1>Menú principal</h1>
+<p>Selecciona lo que quieres hacer.</p>
+<div class="accesos-menu"><a href="panel.html"><img class="icono" src="assets/icons/home.svg" alt="" aria-hidden="true" width="20" height="20">Ver resumen del día</a><a href="inventario.html"><img class="icono" src="assets/icons/box.svg" alt="" aria-hidden="true" width="20" height="20">Administrar productos y precios</a><a href="ventas.html"><img class="icono" src="assets/icons/cart.svg" alt="" aria-hidden="true" width="20" height="20">Registrar una venta</a><a href="reportes.html"><img class="icono" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="20" height="20">Consultar y exportar reportes</a>
+</div>
+</section>
+</main>
+<footer>
+<p>Copy Copy · Datos guardados en este navegador · Acceso de demostración</p>
+</footer>
 </body>
 </html>

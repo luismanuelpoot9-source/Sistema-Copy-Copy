@@ -1,0 +1,25 @@
+.icono {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin-right: .5em;
+  vertical-align: -.2em;
+}
+.barra-principal .barra-principal__marca { display: inline-flex; align-items: center; gap: .7rem; }
+.logo-icono { position: relative; flex-shrink: 0; overflow: hidden; background: #0c0d11; border-radius: 50%; }
+.logo-icono img { position: absolute; width: 225%; max-width: none; height: auto; left: 50%; top: 50%; transform: translate(-50%, -47.2%); }
+.logo-icono--mini { width: 2.8rem; height: 2.8rem; border: 2px solid #f58b13; }
+.pagina-sistema .inicio-marca { display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3rem); padding: clamp(1.5rem, 4vw, 3rem); background: linear-gradient(115deg, #ffffff 55%, #fff1da); }
+.logo-icono--principal { width: clamp(7rem, 16vw, 11rem); aspect-ratio: 1; box-shadow: 0 0 0 6px #ffe8c5, 0 0 0 8px #f58b13; }
+.inicio-marca__texto { min-width: 0; }
+.inicio-marca__texto h1 { margin: .4rem 0 .7rem; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.15; }
+.inicio-marca__etiqueta { margin: 0; font-weight: 800; font-size: .75rem; letter-spacing: .12em; color: #925000; }
+.inicio-marca .boton { display: inline-block; margin-top: .7rem; text-decoration: none; }
+.resumen h2 > .icono { display: block; width: 1.5rem; height: 1.5rem; margin: 0 0 .75rem; color: var(--tinta); }
+.accesos-menu a > .icono { display: block; width: 1.8rem; height: 1.8rem; margin-bottom: .8rem; }
+@media (max-width: 40rem) {
+  .pagina-sistema .inicio-marca { flex-direction: column; align-items: flex-start; }
+  .logo-icono--principal { width: 6rem; }
+  .barra-principal__enlaces a { padding-inline: .5rem; }
+}
+@media print { .icono { display: none; } }
