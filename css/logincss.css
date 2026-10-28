@@ -211,7 +211,9 @@ body {
   border-radius: 4px;
   box-shadow: 4px 4px 0 var(--tinta);
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
 }
 
 .boton:hover {

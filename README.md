@@ -35,3 +35,12 @@ Con el servidor local en el puerto 8765, Node.js, Playwright y Microsoft Edge di
 Para comprobar las animaciones ejecuta también `node tests/animaciones.cjs`.
 
 La conexión a una base de datos queda pendiente para una siguiente etapa.
+
+## Mantenimiento del código
+
+La navegación se define una sola vez en `js/components/navigation.js`.
+`js/pages/` contiene un controlador por pantalla: inicio, inventario, ventas y reportes.
+`js/sistema.js` inicializa los datos y ofrece utilidades compartidas (tablas, botones, importes, avisos y resumen) a esos controladores.
+Los scripts se cargan con `defer`: navegación, sesión, datos, controlador y arranque; después se aplican los efectos visuales.
+`css/tema.css` centraliza los colores del logo y la interacción común de los controles.
+Para agregar una pantalla, crea su controlador en `js/pages/`, cárgalo antes de `js/sistema.js` y añade su enlace a la plantilla de navegación.

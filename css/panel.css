@@ -31,13 +31,11 @@ body {
   background-size: 28px 28px;
 }
 
-
 .app {
   display: grid;
   grid-template-columns: 15rem 1fr;
   min-height: 100vh;
 }
-
 
 .lateral {
   display: flex;
@@ -116,7 +114,6 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-
 .contenido {
   display: grid;
   align-content: start;
@@ -147,7 +144,6 @@ a:focus-visible {
   color: var(--texto-suave);
 }
 
-
 .boton {
   display: inline-block;
   padding: 0.7rem 1.25rem;
@@ -160,7 +156,9 @@ a:focus-visible {
   border: 2px solid var(--tinta);
   border-radius: 4px;
   box-shadow: 4px 4px 0 var(--tinta);
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
 }
 
 .boton:hover {
@@ -178,7 +176,6 @@ a:focus-visible {
   font-weight: 600;
 }
 
-
 .tarjeta {
   padding: 1.25rem 1.5rem;
   background: var(--hoja);
@@ -191,7 +188,6 @@ a:focus-visible {
   font-size: 1.15rem;
   font-weight: 600;
 }
-
 
 .indicadores {
   display: grid;
@@ -233,7 +229,6 @@ a:focus-visible {
   color: var(--texto);
 }
 
-
 .columnas {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -245,7 +240,6 @@ a:focus-visible {
   display: grid;
   gap: 1.25rem;
 }
-
 
 .tabla-contenedor {
   overflow-x: auto;
@@ -280,7 +274,6 @@ a:focus-visible {
   white-space: nowrap;
 }
 
-
 .lista-stock {
   margin: 0 0 1rem;
   padding: 0;
@@ -310,12 +303,10 @@ a:focus-visible {
   background: var(--resaltador);
 }
 
-
 .acciones {
   display: grid;
   gap: 0.75rem;
 }
-
 
 @media (max-width: 62rem) {
   .columnas {

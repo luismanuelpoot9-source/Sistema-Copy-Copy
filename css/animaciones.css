@@ -3,8 +3,11 @@ button,
 .barra-principal__enlaces a,
 .accesos-menu a,
 .resumen article {
-  transition: transform 180ms ease, box-shadow 180ms ease,
-    background-color 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 @media (hover: hover) {
@@ -30,8 +33,11 @@ button,
   box-shadow: 0 0 0 var(--tinta);
 }
 
-input, select {
-  transition: background-color 180ms ease, border-color 180ms ease;
+input,
+select {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .pagina-sistema input:focus,
@@ -48,20 +54,23 @@ input, select {
   background-color: #fff9d8;
 }
 
-#mensaje, #login-error {
+#mensaje,
+#login-error {
   border-radius: 4px;
   box-shadow: 4px 4px 0 var(--tinta);
 }
 
 #login-error {
-  padding: .75rem;
+  padding: 0.75rem;
   color: #7c2018;
   background: #ffe2df;
   border: 2px solid #7c2018;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
@@ -69,7 +78,9 @@ input, select {
 }
 
 @media print {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation: none !important;
     transition: none !important;
     transform: none !important;

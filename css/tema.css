@@ -1,0 +1,47 @@
+/* Colores y movimiento compartidos por todos los componentes. */
+:root {
+  --tinta: #29201a;
+  --resaltador: #ff941f;
+  --fondo: #f6f2eb;
+  --cuadricula: #e7dfd3;
+  --linea: #d7c7b6;
+  --texto-suave: #65574c;
+  --movimiento: 180ms ease;
+}
+.barra-principal {
+  background: #fffaf3;
+  border-color: #d77912;
+}
+.barra-principal__enlaces a[aria-current="page"] {
+  background: var(--resaltador);
+}
+:is(button, .boton, .barra-principal__enlaces a, .accesos-menu a) {
+  transition:
+    transform var(--movimiento),
+    box-shadow var(--movimiento),
+    background-color var(--movimiento);
+}
+@media (hover: hover) {
+  :is(body .pagina-sistema, body)
+    :is(
+      button:not(:disabled),
+      .boton,
+      .barra-principal__enlaces a,
+      .accesos-menu a
+    ):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 0 var(--tinta);
+    background-color: var(--resaltador);
+  }
+  .resumen article:hover {
+    transform: none;
+    box-shadow: 4px 4px var(--tinta);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

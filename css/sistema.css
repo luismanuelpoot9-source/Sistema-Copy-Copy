@@ -135,22 +135,85 @@
   }
 }
 
-[hidden] { display: none !important; }
-.pagina-sistema main { max-width: 90rem; margin: auto; }
-.resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-.resumen article { background: var(--hoja); border: 2px solid var(--tinta); padding: 1.25rem; box-shadow: 4px 4px var(--tinta); }
-.resumen h2 { font-size: 1rem; margin: 0; }
-.resumen p, .total { font-size: 1.6rem; font-weight: 800; color: var(--tinta); }
-.filtros { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
-.filtros select { min-width: 0; max-width: 100%; }
-#mensaje { background: var(--resaltador); padding: 1rem; border: 2px solid var(--tinta); }
-#mensaje.error { background: #ffe2df; color: #7c2018; }
-button:disabled { opacity: .5; cursor: not-allowed; }
-#productos, #carrito, #resultados { margin-top: 1rem; }
+[hidden] {
+  display: none !important;
+}
+.pagina-sistema main {
+  max-width: 90rem;
+  margin: auto;
+}
+.resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.resumen article {
+  background: var(--hoja);
+  border: 2px solid var(--tinta);
+  padding: 1.25rem;
+  box-shadow: 4px 4px var(--tinta);
+}
+.resumen h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+.resumen p,
+.total {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--tinta);
+}
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.filtros select {
+  min-width: 0;
+  max-width: 100%;
+}
+#mensaje {
+  background: var(--resaltador);
+  padding: 1rem;
+  border: 2px solid var(--tinta);
+}
+#mensaje.error {
+  background: #ffe2df;
+  color: #7c2018;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#productos,
+#carrito,
+#resultados {
+  margin-top: 1rem;
+}
 @media print {
-  body.pagina-sistema { background: white; padding: 0; }
-  .barra-principal, .no-imprimir, #mensaje, footer, button { display: none !important; }
-  body[data-page="ventas"] main > :not(#ticket) { display: none !important; }
-  .pagina-sistema section, .resumen article { box-shadow: none; break-inside: avoid; }
-  .pagina-sistema table { display: table; font-size: 10pt; }
+  body.pagina-sistema {
+    background: white;
+    padding: 0;
+  }
+  .barra-principal,
+  .no-imprimir,
+  #mensaje,
+  footer,
+  button {
+    display: none !important;
+  }
+  body[data-page="ventas"] main > :not(#ticket) {
+    display: none !important;
+  }
+  .pagina-sistema section,
+  .resumen article {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .pagina-sistema table {
+    display: table;
+    font-size: 10pt;
+  }
 }

@@ -1,66 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ventas | Copy Copy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/logincss.css">
-<link rel="stylesheet" href="css/sistema.css">
-<link rel="stylesheet" href="css/navegacion.css">
-<script src="js/auth.js" defer></script>
-<script src="js/datos.js" defer></script>
-<script src="js/sistema.js" defer></script>
-<link rel="stylesheet" href="css/animaciones.css">
-<script src="js/estilos.js" defer></script>
-<link rel="stylesheet" href="css/iconos.css">
-<script src="js/iconos.js" defer></script>
-</head>
-<body class="pagina-sistema" data-page="ventas" hidden>
-<div class="barra-principal"><a class="barra-principal__marca" href="panel.html"><span class="logo-icono logo-icono--mini" aria-hidden="true"><img src="assets/copy.jpeg" alt=""></span>Copy Copy</a>
-<nav class="barra-principal__enlaces" aria-label="Navegación principal"><a href="panel.html"><img class="icono" src="assets/icons/home.svg" alt="" aria-hidden="true" width="20" height="20">Inicio</a><a href="menu.html"><img class="icono" src="assets/icons/grid.svg" alt="" aria-hidden="true" width="20" height="20">Menú</a><a href="inventario.html"><img class="icono" src="assets/icons/box.svg" alt="" aria-hidden="true" width="20" height="20">Inventario</a><a href="ventas.html" aria-current="page"><img class="icono" src="assets/icons/cart.svg" alt="" aria-hidden="true" width="20" height="20">Ventas</a><a href="reportes.html"><img class="icono" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="20" height="20">Reportes</a>
-</nav>
-<div><span id="sesion-usuario"></span> <button id="cerrar-sesion" type="button"><img class="icono" src="assets/icons/logout.svg" alt="" aria-hidden="true" width="20" height="20">Cerrar sesión</button>
-</div>
-</div>
-<p id="mensaje" role="status" aria-live="polite" hidden></p>
-<main>
-<h1>Registrar venta</h1>
-<section>
-<h2>Agregar al carrito</h2>
-<form id="sale-form" class="filtros">
-<label for="producto">Producto</label>
-<select id="producto" required></select>
-<label for="cantidad">Cantidad</label>
-<input id="cantidad" type="number" min="1" max="1000000" step="1" value="1" required>
-<button>Agregar</button>
-</form>
-<p>Solo aparecen productos con precio y existencias. <a href="inventario.html"><img class="icono" src="assets/icons/box.svg" alt="" aria-hidden="true" width="20" height="20">Administrar inventario</a></p>
-</section>
-<section>
-<h2>Carrito</h2>
-<div id="carrito">
-</div>
-<p class="total">Total: <strong id="total">$0.00</strong></p>
-<form id="checkout-form" class="filtros">
-<label for="pago">Pago recibido (MXN)</label>
-<input id="pago" type="number" min="0" step="0.01" required>
-<p>Cambio: <strong id="cambio">$0.00</strong></p>
-<button id="cobrar">Confirmar venta</button>
-<button id="vaciar" type="button">Vaciar carrito</button>
-</form>
-</section>
-<section id="ticket" hidden>
-<h2>Venta registrada</h2>
-<div id="ticket-detalle">
-</div>
-<button id="imprimir-ticket">Imprimir comprobante</button>
-</section>
-</main>
-<footer>
-<p>Copy Copy · Datos guardados en este navegador · Acceso de demostración</p>
-</footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ventas | Copy Copy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/logincss.css" />
+    <link rel="stylesheet" href="css/sistema.css" />
+    <link rel="stylesheet" href="css/navegacion.css" />
+    <script src="js/components/navigation.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/datos.js" defer></script>
+    <script src="js/pages/ventas.js" defer></script>
+    <script src="js/sistema.js" defer></script>
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <script src="js/estilos.js" defer></script>
+    <link rel="stylesheet" href="css/iconos.css" />
+    <script src="js/iconos.js" defer></script>
+    <link rel="stylesheet" href="css/tema.css" />
+  </head>
+  <body class="pagina-sistema" data-page="ventas" hidden>
+    <div data-navigation></div>
+    <p id="mensaje" role="status" aria-live="polite" hidden></p>
+    <main>
+      <h1>Registrar venta</h1>
+      <section>
+        <h2>Agregar al carrito</h2>
+        <form id="sale-form" class="filtros">
+          <label for="producto">Producto</label>
+          <select id="producto" required></select>
+          <label for="cantidad">Cantidad</label>
+          <input
+            id="cantidad"
+            type="number"
+            min="1"
+            max="1000000"
+            step="1"
+            value="1"
+            required
+          />
+          <button>Agregar</button>
+        </form>
+        <p>
+          Solo aparecen productos con precio y existencias.
+          <a href="inventario.html"
+            ><img
+              class="icono"
+              src="assets/icons/box.svg"
+              alt=""
+              aria-hidden="true"
+              width="20"
+              height="20"
+            />Administrar inventario</a
+          >
+        </p>
+      </section>
+      <section>
+        <h2>Carrito</h2>
+        <div id="carrito"></div>
+        <p class="total">Total: <strong id="total">$0.00</strong></p>
+        <form id="checkout-form" class="filtros">
+          <label for="pago">Pago recibido (MXN)</label>
+          <input id="pago" type="number" min="0" step="0.01" required />
+          <p>Cambio: <strong id="cambio">$0.00</strong></p>
+          <button id="cobrar">Confirmar venta</button>
+          <button id="vaciar" type="button">Vaciar carrito</button>
+        </form>
+      </section>
+      <section id="ticket" hidden>
+        <h2>Venta registrada</h2>
+        <div id="ticket-detalle"></div>
+        <button id="imprimir-ticket">Imprimir comprobante</button>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Copy Copy · Datos guardados en este navegador · Acceso de demostración
+      </p>
+    </footer>
+  </body>
 </html>
