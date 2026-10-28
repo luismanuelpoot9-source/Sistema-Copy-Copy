@@ -1,3 +1,4 @@
+// Aquí se agregan, editan y buscan los productos.
 window.CopyCopy = window.CopyCopy || { pages: {} };
 window.CopyCopy.pages.inventario = ({
   $,

@@ -1,3 +1,4 @@
+// El carrito se revisa antes de cobrar para no vender más de lo disponible.
 window.CopyCopy = window.CopyCopy || { pages: {} };
 window.CopyCopy.pages.ventas = ({
   $,

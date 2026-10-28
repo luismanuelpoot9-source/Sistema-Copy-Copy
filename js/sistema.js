@@ -3,11 +3,9 @@
   if (document.body.hidden || !document.querySelector("#mensaje")) return;
   const $ = (s) => document.querySelector(s);
   const key = "copycopy.datos.v1";
-  const money = (n) =>
-    new Intl.NumberFormat("es-MX", {
-      style: "currency",
-      currency: "MXN",
-    }).format(n / 100);
+  // Creamos el formato una vez y lo usamos para todos los precios.
+  const currency = new Intl.NumberFormat("es-MX", { style: "currency", currency: "MXN" });
+  const money = (n) => currency.format(n / 100);
   const day = (date = new Date()) =>
     `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
   const message = (text, error = false) => {
@@ -15,6 +13,7 @@
     $("#mensaje").hidden = false;
     $("#mensaje").classList.toggle("error", error);
   };
+  // Recuperamos lo guardado sin borrar los datos si ocurre un error.
   let db;
   try {
     const saved = localStorage.getItem(key);
@@ -44,6 +43,7 @@
       return false;
     }
   }
+  // Todas las pantallas usan esta misma forma de construir tablas.
   function table(target, headers, rows) {
     const host = $(target);
     host.replaceChildren();

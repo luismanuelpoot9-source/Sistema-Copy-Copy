@@ -63,26 +63,34 @@
     }
     image.setAttribute("src", src);
   }
-  function decorate() {
-    document
+  function decorate(root = document) {
+    root
       .querySelectorAll("nav a, .accesos-menu a, main a:not(.boton)")
       .forEach((el) => {
         const icon = pages[el.getAttribute("href")];
         if (icon) setIcon(el, icon);
       });
-    document.querySelectorAll("button, h1, h2, .campo label").forEach((el) => {
+    root.querySelectorAll("button, h1, h2, .campo label").forEach((el) => {
       const icon = labels[el.textContent.trim()];
       if (icon) setIcon(el, icon);
     });
     const user = document.getElementById("sesion-usuario");
     if (user) setIcon(user, "user");
-    document
+    root
       .querySelectorAll("[data-icon]")
       .forEach((el) => setIcon(el, el.dataset.icon));
   }
   decorate();
   // Los botones del inventario y del carrito se vuelven a crear al actualizar.
-  new MutationObserver(decorate).observe(document.body, {
+  new MutationObserver((changes) => {
+    const roots = new Set();
+    for (const change of changes) {
+      if ([...change.addedNodes].every(node => node.nodeType === 1 && node.matches('img.icono'))) continue;
+      const target = change.target.nodeType === 1 ? change.target : change.target.parentElement;
+      if (target) roots.add(target.parentElement || target);
+    }
+    roots.forEach(root => decorate(root));
+  }).observe(document.body, {
     childList: true,
     subtree: true,
     characterData: true,

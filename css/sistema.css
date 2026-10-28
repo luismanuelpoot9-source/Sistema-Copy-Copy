@@ -81,10 +81,6 @@
   cursor: pointer;
 }
 
-.pagina-sistema button:hover {
-  transform: translateY(-1px);
-}
-
 .pagina-sistema :is(a, button, input, select):focus-visible {
   outline: 3px solid var(--tinta);
   outline-offset: 3px;

@@ -1,16 +1,4 @@
-/* ===== Copy Copy · Ventana 1: Inicio de sesión ===== */
-
-:root {
-  --fondo: #e8eef7;
-  --cuadricula: #cdd8ea;
-  --hoja: #ffffff;
-  --tinta: #1d2f6f;
-  --texto: #1b1f2a;
-  --texto-suave: #4d5670;
-  --resaltador: #ffe45c;
-  --linea: #b9c5de;
-  --fuente: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-}
+/* ===== Copy Copy Â· Ventana 1: Inicio de sesiÃ³n ===== */
 
 *,
 *::before,
@@ -45,7 +33,7 @@ body {
   isolation: isolate;
 }
 
-/* ----- La hoja y su "copia" detrás ----- */
+/* ----- La hoja y su "copia" detrÃ¡s ----- */
 
 .hoja {
   position: relative;
@@ -106,7 +94,7 @@ body {
   color: var(--texto-suave);
 }
 
-/* ----- Título ----- */
+/* ----- TÃ­tulo ----- */
 
 .hoja__titulo {
   margin: 0 0 0.35rem;
@@ -138,7 +126,7 @@ body {
   font-weight: 600;
 }
 
-/* campos como renglón de cuaderno */
+/* campos como renglÃ³n de cuaderno */
 .campo input {
   width: 100%;
   padding: 0.55rem 0.15rem;
@@ -199,7 +187,7 @@ body {
   outline-offset: 3px;
 }
 
-/* ----- Botón: resaltador ----- */
+/* ----- BotÃ³n: resaltador ----- */
 
 .boton {
   padding: 0.8rem 1.25rem;
@@ -216,11 +204,6 @@ body {
     box-shadow 0.1s;
 }
 
-.boton:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 5px 5px 0 var(--tinta);
-}
-
 .boton:active {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 var(--tinta);
@@ -231,7 +214,7 @@ body {
   outline-offset: 4px;
 }
 
-/* ----- Móvil ----- */
+/* ----- MÃ³vil ----- */
 
 @media (max-width: 30rem) {
   .hoja {

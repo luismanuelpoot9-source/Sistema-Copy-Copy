@@ -10,21 +10,12 @@ button,
     border-color 180ms ease;
 }
 
+/* El mismo efecto para los botones, el menú y los accesos. */
 @media (hover: hover) {
-  .barra-principal__enlaces a:hover {
+  body :is(button:not(:disabled), .boton, .barra-principal__enlaces a, .accesos-menu a):hover {
     transform: translateY(-3px);
-    box-shadow: 0 3px 0 var(--tinta);
-  }
-
-  .accesos-menu a:hover,
-  .resumen article:hover {
-    transform: translate(-3px, -4px);
-    box-shadow: 7px 8px 0 var(--tinta);
-  }
-
-  .pagina-sistema button:not(:disabled):hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 var(--tinta);
+    box-shadow: 0 4px 0 var(--tinta);
+    background-color: var(--resaltador);
   }
 }
 

@@ -44,3 +44,5 @@ La navegación se define una sola vez en `js/components/navigation.js`.
 Los scripts se cargan con `defer`: navegación, sesión, datos, controlador y arranque; después se aplican los efectos visuales.
 `css/tema.css` centraliza los colores del logo y la interacción común de los controles.
 Para agregar una pantalla, crea su controlador en `js/pages/`, cárgalo antes de `js/sistema.js` y añade su enlace a la plantilla de navegación.
+
+Limpieza: se retiró el CSS del panel anterior, el menú carga solo sus scripts y los precios comparten un único formato. El acceso `login.html.html` se conserva únicamente para redirigir enlaces antiguos.

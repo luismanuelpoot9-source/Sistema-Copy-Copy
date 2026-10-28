@@ -1,3 +1,4 @@
+// Los reportes usan las ventas guardadas y los filtros elegidos.
 window.CopyCopy = window.CopyCopy || { pages: {} };
 window.CopyCopy.pages.reportes = ({
   $,

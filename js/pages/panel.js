@@ -1,3 +1,4 @@
+// El inicio muestra el resumen y las ventas recientes.
 window.CopyCopy = window.CopyCopy || { pages: {} };
 window.CopyCopy.pages.panel = ({
   $,

@@ -1,5 +1,8 @@
 /* Colores y movimiento compartidos por todos los componentes. */
 :root {
+  --hoja: #fff;
+  --texto: #1b1f2a;
+  --fuente: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --tinta: #29201a;
   --resaltador: #ff941f;
   --fondo: #f6f2eb;
@@ -14,34 +17,4 @@
 }
 .barra-principal__enlaces a[aria-current="page"] {
   background: var(--resaltador);
-}
-:is(button, .boton, .barra-principal__enlaces a, .accesos-menu a) {
-  transition:
-    transform var(--movimiento),
-    box-shadow var(--movimiento),
-    background-color var(--movimiento);
-}
-@media (hover: hover) {
-  :is(body .pagina-sistema, body)
-    :is(
-      button:not(:disabled),
-      .boton,
-      .barra-principal__enlaces a,
-      .accesos-menu a
-    ):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 0 var(--tinta);
-    background-color: var(--resaltador);
-  }
-  .resumen article:hover {
-    transform: none;
-    box-shadow: 4px 4px var(--tinta);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-  }
 }
