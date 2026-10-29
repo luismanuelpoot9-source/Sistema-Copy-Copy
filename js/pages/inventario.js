@@ -5,12 +5,9 @@ window.CopyCopy.pages.inventario = ({
   db,
   save,
   money,
-  day,
   message,
   table,
   button,
-  summary,
-  key,
 }) => {
   let editing = null;
   function reset() {

@@ -13,18 +13,21 @@
     <link rel="stylesheet" href="css/logincss.css" />
     <link rel="stylesheet" href="css/sistema.css" />
     <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
     <script src="js/components/navigation.js" defer></script>
     <script src="js/auth.js" defer></script>
-    <link rel="stylesheet" href="css/animaciones.css" />
     <script src="js/estilos.js" defer></script>
-    <link rel="stylesheet" href="css/iconos.css" />
     <script src="js/iconos.js" defer></script>
-    <link rel="stylesheet" href="css/tema.css" />
   </head>
   <body class="pagina-sistema" data-page="menu" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
     <div data-navigation></div>
     <p id="mensaje" role="status" aria-live="polite" hidden></p>
-    <main>
+    <main id="contenido" tabindex="-1">
       <section>
         <h1>Menú principal</h1>
         <p>Selecciona lo que quieres hacer.</p>

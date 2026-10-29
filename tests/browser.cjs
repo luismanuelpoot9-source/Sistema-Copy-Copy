@@ -14,9 +14,9 @@ const assert = require('node:assert/strict');
   await page.fill('#clave','copycopy123'); await page.click('button[type=submit]'); await page.waitForURL('**/panel.html');
   assert.equal(await page.getByText('Iniciar sesión',{exact:true}).count(),0);
   await page.click('nav a[href="inventario.html"]');
-  await page.fill('#codigo','TEST-001'); await page.fill('#nombre','Producto de prueba'); await page.fill('#categoria','Pruebas'); await page.fill('#unidades','5'); await page.fill('#precio','12.50'); await page.click('#product-form button:not([type])');
+  await page.fill('#codigo','TEST-001'); await page.fill('#nombre','Producto de prueba'); await page.fill('#categoria','Pruebas'); await page.fill('#unidades','5'); await page.fill('#precio','12.50'); await page.click('#product-form button[type="submit"]');
   await page.reload(); await page.fill('#search-input','TEST-001'); assert.equal(await page.locator('#productos tbody tr').count(),1);
-  await page.locator('#productos').getByRole('button',{name:'Editar',exact:true}).click(); await page.fill('#precio','15.50'); await page.click('#product-form button:not([type])');
+  await page.locator('#productos').getByRole('button',{name:'Editar',exact:true}).click(); await page.fill('#precio','15.50'); await page.click('#product-form button[type="submit"]');
   await page.click('nav a[href="ventas.html"]'); await page.selectOption('#producto','TEST-001'); await page.fill('#cantidad','6'); await page.click('#sale-form button');
   assert.match(await page.locator('#mensaje').textContent(),/supera/);
   await page.fill('#cantidad','2'); await page.click('#sale-form button'); await page.fill('#pago','10'); await page.click('#cobrar');
@@ -25,9 +25,9 @@ const assert = require('node:assert/strict');
   const data=await page.evaluate(()=>JSON.parse(localStorage.getItem('copycopy.datos.v1')));
   assert.equal(data.products.find(p=>p.code==='TEST-001').stock,3); assert.equal(data.sales[0].total,3100); assert.equal(data.sales[0].change,1900);
   await page.click('nav a[href="reportes.html"]'); assert.match(await page.locator('#resultados').textContent(),/31.00/);
-  await page.selectOption('#tipo','productos'); await page.click('#report-form button:not([type])'); assert.match(await page.locator('#resultados').textContent(),/TEST-001/);
+  await page.selectOption('#tipo','productos'); await page.click('#report-form button[type="submit"]'); assert.match(await page.locator('#resultados').textContent(),/TEST-001/);
   const download=page.waitForEvent('download'); await page.click('#exportar'); assert.match((await download).suggestedFilename(),/\.csv$/);
-  await page.fill('#fechaInicio','2099-01-01'); await page.click('#report-form button:not([type])'); assert.match(await page.locator('#resultados').textContent(),/No hay registros/);
+  await page.fill('#fechaInicio','2099-01-01'); await page.click('#report-form button[type="submit"]'); assert.match(await page.locator('#resultados').textContent(),/No hay registros/);
   for(const width of [390,1280]) {
     await page.setViewportSize({width,height:900});
     for(const name of ['panel','menu','inventario','ventas','reportes']) {

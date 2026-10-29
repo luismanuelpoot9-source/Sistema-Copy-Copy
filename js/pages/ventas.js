@@ -9,7 +9,6 @@ window.CopyCopy.pages.ventas = ({
   message,
   table,
   button,
-  summary,
   key,
 }) => {
   let cart = [];

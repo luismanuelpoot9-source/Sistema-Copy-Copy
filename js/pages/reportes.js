@@ -1,17 +1,6 @@
 // Los reportes usan las ventas guardadas y los filtros elegidos.
 window.CopyCopy = window.CopyCopy || { pages: {} };
-window.CopyCopy.pages.reportes = ({
-  $,
-  db,
-  save,
-  money,
-  day,
-  message,
-  table,
-  button,
-  summary,
-  key,
-}) => {
+window.CopyCopy.pages.reportes = ({ $, db, day, message, table, summary }) => {
   let exported = [];
   summary();
   function report() {

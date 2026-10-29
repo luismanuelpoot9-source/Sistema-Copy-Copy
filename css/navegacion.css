@@ -1,4 +1,4 @@
-/* Barra compartida: enlaces directos que funcionan sin JavaScript. */
+/* Aspecto del menú compartido por las pantallas del sistema. */
 .barra-principal {
   display: flex;
   flex-wrap: wrap;
@@ -10,7 +10,7 @@
   border-bottom: 2px solid var(--tinta);
 }
 
-.barra-principal .barra-principal__marca {
+.barra-principal__marca {
   color: var(--tinta);
   font-size: 1.6rem;
   font-weight: 800;
@@ -18,7 +18,7 @@
   white-space: nowrap;
 }
 
-.barra-principal .barra-principal__enlaces {
+.barra-principal__enlaces {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -55,15 +55,6 @@
   box-shadow: 4px 4px 0 var(--tinta);
 }
 
-.app.app--barra {
-  grid-template-columns: minmax(0, 1fr);
-  min-height: auto;
-}
-
-.barra-principal ~ .escena {
-  min-height: calc(100vh - 6rem);
-}
-
 .accesos-menu {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
@@ -79,7 +70,7 @@
 }
 
 @media (max-width: 40rem) {
-  .barra-principal .barra-principal__enlaces {
+  .barra-principal__enlaces {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

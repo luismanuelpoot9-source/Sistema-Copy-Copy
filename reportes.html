@@ -13,37 +13,40 @@
     <link rel="stylesheet" href="css/logincss.css" />
     <link rel="stylesheet" href="css/sistema.css" />
     <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
     <script src="js/components/navigation.js" defer></script>
     <script src="js/auth.js" defer></script>
     <script src="js/datos.js" defer></script>
     <script src="js/pages/reportes.js" defer></script>
     <script src="js/sistema.js" defer></script>
-    <link rel="stylesheet" href="css/animaciones.css" />
     <script src="js/estilos.js" defer></script>
-    <link rel="stylesheet" href="css/iconos.css" />
     <script src="js/iconos.js" defer></script>
-    <link rel="stylesheet" href="css/tema.css" />
   </head>
   <body class="pagina-sistema" data-page="reportes" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
     <div data-navigation></div>
     <p id="mensaje" role="status" aria-live="polite" hidden></p>
-    <main>
+    <main id="contenido" tabindex="-1">
       <h1>Reportes</h1>
       <div id="resumen" class="resumen"></div>
-      <section class="no-imprimir">
-        <h2>Consultar reportes</h2>
+      <section class="no-imprimir" aria-labelledby="seccion-1">
+        <h2 id="seccion-1">Consultar reportes</h2>
         <form id="report-form" class="filtros">
           <label for="tipo">Tipo de reporte</label>
-          <select id="tipo">
+          <select name="tipo" id="tipo">
             <option value="ventas">Ventas</option>
             <option value="inventario">Inventario actual</option>
             <option value="productos">Productos vendidos</option>
           </select>
           <label for="fechaInicio">Fecha inicial</label>
-          <input id="fechaInicio" type="date" />
+          <input name="fechaInicio" id="fechaInicio" type="date" />
           <label for="fechaFin">Fecha final</label>
-          <input id="fechaFin" type="date" />
-          <button>Consultar reporte</button>
+          <input name="fechaFin" id="fechaFin" type="date" />
+          <button type="submit">Consultar reporte</button>
           <button type="reset">Limpiar filtros</button>
         </form>
         <p>
@@ -51,14 +54,14 @@
           las existencias actuales.
         </p>
       </section>
-      <section id="reporte">
+      <section id="reporte" aria-labelledby="reporte-titulo">
         <h2 id="reporte-titulo">Ventas</h2>
         <p id="reporte-periodo"></p>
         <div id="resultados"></div>
       </section>
       <div class="no-imprimir">
-        <button id="imprimir">Imprimir reporte</button>
-        <button id="exportar">Exportar CSV para Excel</button>
+        <button type="button" id="imprimir">Imprimir reporte</button>
+        <button type="button" id="exportar">Exportar CSV para Excel</button>
       </div>
     </main>
     <footer>

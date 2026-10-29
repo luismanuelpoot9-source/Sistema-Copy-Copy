@@ -13,29 +13,33 @@
     <link rel="stylesheet" href="css/logincss.css" />
     <link rel="stylesheet" href="css/sistema.css" />
     <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
     <script src="js/components/navigation.js" defer></script>
     <script src="js/auth.js" defer></script>
     <script src="js/datos.js" defer></script>
     <script src="js/pages/ventas.js" defer></script>
     <script src="js/sistema.js" defer></script>
-    <link rel="stylesheet" href="css/animaciones.css" />
     <script src="js/estilos.js" defer></script>
-    <link rel="stylesheet" href="css/iconos.css" />
     <script src="js/iconos.js" defer></script>
-    <link rel="stylesheet" href="css/tema.css" />
   </head>
   <body class="pagina-sistema" data-page="ventas" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
     <div data-navigation></div>
     <p id="mensaje" role="status" aria-live="polite" hidden></p>
-    <main>
+    <main id="contenido" tabindex="-1">
       <h1>Registrar venta</h1>
-      <section>
-        <h2>Agregar al carrito</h2>
+      <section aria-labelledby="seccion-1">
+        <h2 id="seccion-1">Agregar al carrito</h2>
         <form id="sale-form" class="filtros">
           <label for="producto">Producto</label>
-          <select id="producto" required></select>
+          <select name="producto" id="producto" required></select>
           <label for="cantidad">Cantidad</label>
           <input
+            name="cantidad"
             id="cantidad"
             type="number"
             min="1"
@@ -44,7 +48,7 @@
             value="1"
             required
           />
-          <button>Agregar</button>
+          <button type="submit">Agregar</button>
         </form>
         <p>
           Solo aparecen productos con precio y existencias.
@@ -60,22 +64,34 @@
           >
         </p>
       </section>
-      <section>
-        <h2>Carrito</h2>
+      <section aria-labelledby="seccion-2">
+        <h2 id="seccion-2">Carrito</h2>
         <div id="carrito"></div>
-        <p class="total">Total: <strong id="total">$0.00</strong></p>
+        <p class="total">
+          Total:
+          <strong id="total" aria-live="polite" aria-atomic="true"
+            >$0.00</strong
+          >
+        </p>
         <form id="checkout-form" class="filtros">
           <label for="pago">Pago recibido (MXN)</label>
-          <input id="pago" type="number" min="0" step="0.01" required />
+          <input
+            name="pago"
+            id="pago"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
           <p>Cambio: <strong id="cambio">$0.00</strong></p>
-          <button id="cobrar">Confirmar venta</button>
+          <button type="submit" id="cobrar">Confirmar venta</button>
           <button id="vaciar" type="button">Vaciar carrito</button>
         </form>
       </section>
-      <section id="ticket" hidden>
-        <h2>Venta registrada</h2>
+      <section id="ticket" hidden aria-labelledby="seccion-3">
+        <h2 id="seccion-3">Venta registrada</h2>
         <div id="ticket-detalle"></div>
-        <button id="imprimir-ticket">Imprimir comprobante</button>
+        <button type="button" id="imprimir-ticket">Imprimir comprobante</button>
       </section>
     </main>
     <footer>

@@ -1,4 +1,4 @@
-/* ===== Copy Copy Â· Ventana 1: Inicio de sesiÃ³n ===== */
+/* ===== Copy Copy · Ventana 1: Inicio de sesión ===== */
 
 *,
 *::before,
@@ -33,7 +33,7 @@ body {
   isolation: isolate;
 }
 
-/* ----- La hoja y su "copia" detrÃ¡s ----- */
+/* ----- La hoja y su "copia" detrás ----- */
 
 .hoja {
   position: relative;
@@ -94,7 +94,7 @@ body {
   color: var(--texto-suave);
 }
 
-/* ----- TÃ­tulo ----- */
+/* ----- Título ----- */
 
 .hoja__titulo {
   margin: 0 0 0.35rem;
@@ -126,7 +126,7 @@ body {
   font-weight: 600;
 }
 
-/* campos como renglÃ³n de cuaderno */
+/* campos como renglón de cuaderno */
 .campo input {
   width: 100%;
   padding: 0.55rem 0.15rem;
@@ -187,7 +187,7 @@ body {
   outline-offset: 3px;
 }
 
-/* ----- BotÃ³n: resaltador ----- */
+/* ----- Botón: resaltador ----- */
 
 .boton {
   padding: 0.8rem 1.25rem;
@@ -214,7 +214,7 @@ body {
   outline-offset: 4px;
 }
 
-/* ----- MÃ³vil ----- */
+/* ----- Móvil ----- */
 
 @media (max-width: 30rem) {
   .hoja {
@@ -223,11 +223,5 @@ body {
 
   .hoja::before {
     transform: translate(0.5rem, 0.5rem) rotate(1deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
   }
 }

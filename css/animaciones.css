@@ -12,7 +12,13 @@ button,
 
 /* El mismo efecto para los botones, el menú y los accesos. */
 @media (hover: hover) {
-  body :is(button:not(:disabled), .boton, .barra-principal__enlaces a, .accesos-menu a):hover {
+  body
+    :is(
+      button:not(:disabled),
+      .boton,
+      .barra-principal__enlaces a,
+      .accesos-menu a
+    ):hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 0 var(--tinta);
     background-color: var(--resaltador);

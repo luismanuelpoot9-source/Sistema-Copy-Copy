@@ -12,7 +12,7 @@
   color: var(--tinta);
 }
 
-.pagina-sistema header,
+.pagina-sistema main header,
 .pagina-sistema section,
 .pagina-sistema fieldset {
   min-width: 0;

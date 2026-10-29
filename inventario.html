@@ -13,33 +13,37 @@
     <link rel="stylesheet" href="css/logincss.css" />
     <link rel="stylesheet" href="css/sistema.css" />
     <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
     <script src="js/components/navigation.js" defer></script>
     <script src="js/auth.js" defer></script>
     <script src="js/datos.js" defer></script>
     <script src="js/pages/inventario.js" defer></script>
     <script src="js/sistema.js" defer></script>
-    <link rel="stylesheet" href="css/animaciones.css" />
     <script src="js/estilos.js" defer></script>
-    <link rel="stylesheet" href="css/iconos.css" />
     <script src="js/iconos.js" defer></script>
-    <link rel="stylesheet" href="css/tema.css" />
   </head>
   <body class="pagina-sistema" data-page="inventario" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
     <div data-navigation></div>
     <p id="mensaje" role="status" aria-live="polite" hidden></p>
-    <main>
+    <main id="contenido" tabindex="-1">
       <h1>Inventario</h1>
-      <section>
+      <section aria-labelledby="form-title">
         <h2 id="form-title">Agregar producto</h2>
         <form id="product-form">
           <label for="codigo">Código</label>
-          <input id="codigo" required maxlength="40" />
+          <input name="codigo" id="codigo" required maxlength="40" />
           <label for="nombre">Nombre</label>
-          <input id="nombre" required maxlength="150" />
+          <input name="nombre" id="nombre" required maxlength="150" />
           <label for="categoria">Categoría</label>
-          <input id="categoria" required maxlength="80" />
+          <input name="categoria" id="categoria" required maxlength="80" />
           <label for="unidades">Existencias</label>
           <input
+            name="unidades"
             id="unidades"
             type="number"
             min="0"
@@ -49,6 +53,7 @@
           />
           <label for="precio">Precio (MXN)</label>
           <input
+            name="precio"
             id="precio"
             type="number"
             min="0.01"
@@ -56,19 +61,20 @@
             step="0.01"
             required
           />
-          <button>Guardar producto</button>
+          <button type="submit">Guardar producto</button>
           <button type="button" id="cancelar-edicion" hidden>
             Cancelar edición
           </button>
         </form>
       </section>
-      <section>
-        <h2>Productos</h2>
+      <section aria-labelledby="seccion-2">
+        <h2 id="seccion-2">Productos</h2>
         <p>Asigna un precio a los productos iniciales para poder venderlos.</p>
         <label for="search-input">Buscar por código, nombre o categoría</label>
-        <input id="search-input" type="search" />
+        <input name="search-input" id="search-input" type="search" />
         <label>
-          <input id="solo-favoritos" type="checkbox" /> Solo favoritos</label
+          <input name="solo-favoritos" id="solo-favoritos" type="checkbox" />
+          Solo favoritos</label
         >
         <div id="productos"></div>
       </section>

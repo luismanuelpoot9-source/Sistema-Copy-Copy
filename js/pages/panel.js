@@ -1,17 +1,6 @@
 // El inicio muestra el resumen y las ventas recientes.
 window.CopyCopy = window.CopyCopy || { pages: {} };
-window.CopyCopy.pages.panel = ({
-  $,
-  db,
-  save,
-  money,
-  day,
-  message,
-  table,
-  button,
-  summary,
-  key,
-}) => {
+window.CopyCopy.pages.panel = ({ db, money, table, summary }) => {
   summary();
   table(
     "#ultimas",

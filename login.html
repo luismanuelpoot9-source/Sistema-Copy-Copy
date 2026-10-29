@@ -11,16 +11,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/logincss.css" />
-    <link rel="stylesheet" href="css/navegacion.css" />
-    <script src="js/auth.js" defer></script>
     <link rel="stylesheet" href="css/animaciones.css" />
-    <script src="js/estilos.js" defer></script>
     <link rel="stylesheet" href="css/iconos.css" />
-    <script src="js/iconos.js" defer></script>
     <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
+    <script src="js/auth.js" defer></script>
+    <script src="js/estilos.js" defer></script>
+    <script src="js/iconos.js" defer></script>
   </head>
   <body data-page="login">
-    <main class="escena">
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+    <main id="contenido" class="escena" tabindex="-1">
       <section class="hoja" aria-labelledby="titulo">
         <header class="hoja__cabecera">
           <p class="marca" aria-label="Papelería Copy Copy">
@@ -31,11 +33,11 @@
         </header>
 
         <h1 id="titulo" class="hoja__titulo">Iniciar sesión</h1>
-        <p class="hoja__ayuda">
+        <p id="login-ayuda" class="hoja__ayuda">
           Entra con tu usuario para registrar ventas y revisar el inventario.
         </p>
 
-        <form id="login-form" class="formulario">
+        <form id="login-form" class="formulario" aria-describedby="login-ayuda">
           <div class="campo">
             <label for="usuario">Usuario</label>
             <input
