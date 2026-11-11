@@ -17,7 +17,7 @@ const assert = require('node:assert/strict');
   await page.fill('#codigo','TEST-001'); await page.fill('#nombre','Producto de prueba'); await page.fill('#categoria','Pruebas'); await page.fill('#unidades','5'); await page.fill('#precio','12.50'); await page.click('#product-form button[type="submit"]');
   await page.reload(); await page.fill('#search-input','TEST-001'); assert.equal(await page.locator('#productos tbody tr').count(),1);
   await page.locator('#productos').getByRole('button',{name:'Editar',exact:true}).click(); await page.fill('#precio','15.50'); await page.click('#product-form button[type="submit"]');
-  await page.click('nav a[href="ventas.html"]'); await page.selectOption('#producto','TEST-001'); await page.fill('#cantidad','6'); await page.click('#sale-form button');
+  await page.click('nav a[href="ventas.html"]'); await page.fill('#producto','TEST-001'); await page.fill('#cantidad','6'); await page.click('#sale-form button');
   assert.match(await page.locator('#mensaje').textContent(),/supera/);
   await page.fill('#cantidad','2'); await page.click('#sale-form button'); await page.fill('#pago','10'); await page.click('#cobrar');
   assert.match(await page.locator('#mensaje').textContent(),/cubrir/);

@@ -18,19 +18,6 @@ window.CopyCopy.pages.ventas = ({
     );
   }
   function render() {
-    const selected = $("#producto").value;
-    $("#producto").replaceChildren(new Option("Selecciona un producto", ""));
-    db.products
-      .filter((p) => p.stock > 0 && p.price > 0)
-      .forEach((p) =>
-        $("#producto").add(
-          new Option(
-            `${p.code} · ${p.name} · ${money(p.price)} · ${p.stock} disponibles`,
-            p.code,
-          ),
-        ),
-      );
-    $("#producto").value = selected;
     table(
       "#carrito",
       ["Producto", "Cantidad", "Precio", "Importe", "Acciones"],
@@ -51,11 +38,19 @@ window.CopyCopy.pages.ventas = ({
   }
   $("#sale-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    const p = db.products.find((p) => p.code === $("#producto").value),
+    const codigo = $("#producto").value.trim().toUpperCase();
+    const p = db.products.find((p) => p.code.toUpperCase() === codigo),
       qty = Number($("#cantidad").value),
       item = cart.find((i) => i.code === p?.code);
+    if (!p) {
+      message("No existe un producto con ese código.", true);
+      return;
+    }
+    if (p.price <= 0) {
+      message("El producto no tiene un precio válido. Revisa el inventario.", true);
+      return;
+    }
     if (
-      !p ||
       !Number.isSafeInteger(qty) ||
       qty < 1 ||
       qty + (item?.qty || 0) > p.stock
@@ -69,7 +64,10 @@ window.CopyCopy.pages.ventas = ({
     if (item) item.qty += qty;
     else cart.push({ code: p.code, name: p.name, price: p.price, qty });
     render();
-    message("Producto agregado al carrito.");
+    $("#producto").value = "";
+    $("#cantidad").value = "1";
+    $("#producto").focus();
+    message(`${p.name} agregado al carrito.`);
   });
   $("#pago").addEventListener("input", change);
   $("#vaciar").addEventListener("click", () => {

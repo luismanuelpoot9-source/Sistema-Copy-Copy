@@ -36,8 +36,8 @@
       <section aria-labelledby="seccion-1">
         <h2 id="seccion-1">Agregar al carrito</h2>
         <form id="sale-form" class="filtros">
-          <label for="producto">Producto</label>
-          <select name="producto" id="producto" required></select>
+          <label for="producto">Código del producto</label>
+          <input name="producto" id="producto" type="text" placeholder="Ej. PAP-001" autocomplete="off" spellcheck="false" required />
           <label for="cantidad">Cantidad</label>
           <input
             name="cantidad"
@@ -52,7 +52,7 @@
           <button type="submit">Agregar</button>
         </form>
         <p>
-          Solo aparecen productos con precio y existencias.
+          Ingresa el código del producto para agregarlo al carrito.
           <a href="inventario.html"
             ><img
               class="icono"
