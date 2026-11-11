@@ -23,7 +23,7 @@ window.CopyCopy.pages.ventas = ({
     const texto = codigoInput.value.trim().toUpperCase();
     const productos = db.products.filter((p) =>
       p.code.toUpperCase().includes(texto) || p.name.toUpperCase().includes(texto),
-    );
+    ).sort((a, b) => a.code.localeCompare(b.code, "es", { numeric: true }));
     sugerencias.replaceChildren(...productos.map((p) => {
       const opcion = button(
         `${p.code} · ${p.name} · ${money(p.price)} · ${p.stock} disponibles`,
@@ -33,17 +33,33 @@ window.CopyCopy.pages.ventas = ({
           $("#cantidad").focus();
         },
       );
+      opcion.className = "sugerencia-producto";
+      opcion.replaceChildren(...[
+        ["sugerencia-producto__codigo", p.code],
+        ["sugerencia-producto__nombre", p.name],
+        ["sugerencia-producto__precio", money(p.price)],
+      ].map(([clase, texto]) => {
+        const span = document.createElement("span");
+        span.className = clase;
+        span.textContent = texto;
+        return span;
+      }));
       return opcion;
     }));
     if (!productos.length) sugerencias.textContent = "No hay productos con ese código o nombre.";
     sugerencias.hidden = false;
   }
-  codigoInput.addEventListener("input", sugerir);
-  codigoInput.addEventListener("focus", sugerir);
+  const buscador = codigoInput.parentElement;
+  buscador.addEventListener("mouseenter", sugerir);
+  buscador.addEventListener("mouseleave", () => { sugerencias.hidden = true; });
+  codigoInput.addEventListener("input", () => {
+    if (buscador.matches(":hover")) sugerir();
+  });
   codigoInput.addEventListener("keydown", (e) => {
     if (e.key === "Escape") sugerencias.hidden = true;
     if (e.key === "ArrowDown") {
       e.preventDefault();
+      sugerir();
       sugerencias.querySelector("button")?.focus();
     }
   });
