@@ -17,15 +17,40 @@ window.CopyCopy.pages.ventas = ({
       Math.max(0, Math.round(Number($("#pago").value) * 100) - total()),
     );
   }
-  function render() {
-    $("#codigos-productos").replaceChildren(
-      ...db.products.map((p) => {
-        const option = document.createElement("option");
-        option.value = p.code;
-        option.label = `${p.name} · ${money(p.price)} · ${p.stock} disponibles`;
-        return option;
-      }),
+  const codigoInput = $("#producto");
+  const sugerencias = $("#codigos-productos");
+  function sugerir() {
+    const texto = codigoInput.value.trim().toUpperCase();
+    const productos = db.products.filter((p) =>
+      p.code.toUpperCase().includes(texto) || p.name.toUpperCase().includes(texto),
     );
+    sugerencias.replaceChildren(...productos.map((p) => {
+      const opcion = button(
+        `${p.code} · ${p.name} · ${money(p.price)} · ${p.stock} disponibles`,
+        () => {
+          codigoInput.value = p.code;
+          sugerencias.hidden = true;
+          $("#cantidad").focus();
+        },
+      );
+      return opcion;
+    }));
+    if (!productos.length) sugerencias.textContent = "No hay productos con ese código o nombre.";
+    sugerencias.hidden = false;
+  }
+  codigoInput.addEventListener("input", sugerir);
+  codigoInput.addEventListener("focus", sugerir);
+  codigoInput.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") sugerencias.hidden = true;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      sugerencias.querySelector("button")?.focus();
+    }
+  });
+  codigoInput.parentElement.addEventListener("focusout", (e) => {
+    if (!codigoInput.parentElement.contains(e.relatedTarget)) sugerencias.hidden = true;
+  });
+  function render() {
     table(
       "#carrito",
       ["Producto", "Cantidad", "Precio", "Importe", "Acciones"],
@@ -75,6 +100,7 @@ window.CopyCopy.pages.ventas = ({
     $("#producto").value = "";
     $("#cantidad").value = "1";
     $("#producto").focus();
+    sugerencias.hidden = true;
     message(`${p.name} agregado al carrito.`);
   });
   $("#pago").addEventListener("input", change);

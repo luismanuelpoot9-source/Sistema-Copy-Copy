@@ -164,6 +164,30 @@
   align-items: center;
   gap: 1rem;
 }
+.buscador-codigo {
+  position: relative;
+  width: min(28rem, 100%);
+}
+.buscador-codigo input { width: 100%; box-sizing: border-box; }
+.sugerencias-codigo:not([hidden]) {
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 16rem;
+  overflow-y: auto;
+  background: white;
+  border: 2px solid var(--tinta);
+  padding: .4rem;
+}
+.sugerencias-codigo button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: .25rem 0;
+  white-space: normal;
+}
 .filtros select {
   min-width: 0;
   max-width: 100%;

@@ -22,7 +22,7 @@
     <script src="js/api.js" defer></script>
     <script src="js/auth.js" defer></script>
     <script src="js/datos.js" defer></script>
-    <script src="js/pages/ventas.js" defer></script>
+    <script src="js/pages/ventas.js?v=20261111-2" defer></script>
     <script src="js/sistema.js" defer></script>
     <script src="js/estilos.js" defer></script>
     <script src="js/iconos.js" defer></script>
@@ -37,8 +37,10 @@
         <h2 id="seccion-1">Agregar al carrito</h2>
         <form id="sale-form" class="filtros">
           <label for="producto">Código del producto</label>
-          <input name="producto" id="producto" type="text" list="codigos-productos" placeholder="Ej. PAP-001" autocomplete="off" spellcheck="false" required />
-          <datalist id="codigos-productos"></datalist>
+          <div class="buscador-codigo">
+            <input name="producto" id="producto" type="text" placeholder="Ej. PAP-001" autocomplete="off" spellcheck="false" aria-controls="codigos-productos" required />
+            <div id="codigos-productos" class="sugerencias-codigo" aria-label="Productos registrados" hidden></div>
+          </div>
           <label for="cantidad">Cantidad</label>
           <input
             name="cantidad"
