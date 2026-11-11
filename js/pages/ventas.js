@@ -18,6 +18,14 @@ window.CopyCopy.pages.ventas = ({
     );
   }
   function render() {
+    $("#codigos-productos").replaceChildren(
+      ...db.products.map((p) => {
+        const option = document.createElement("option");
+        option.value = p.code;
+        option.label = `${p.name} · ${money(p.price)} · ${p.stock} disponibles`;
+        return option;
+      }),
+    );
     table(
       "#carrito",
       ["Producto", "Cantidad", "Precio", "Importe", "Acciones"],

@@ -37,7 +37,8 @@
         <h2 id="seccion-1">Agregar al carrito</h2>
         <form id="sale-form" class="filtros">
           <label for="producto">Código del producto</label>
-          <input name="producto" id="producto" type="text" placeholder="Ej. PAP-001" autocomplete="off" spellcheck="false" required />
+          <input name="producto" id="producto" type="text" list="codigos-productos" placeholder="Ej. PAP-001" autocomplete="off" spellcheck="false" required />
+          <datalist id="codigos-productos"></datalist>
           <label for="cantidad">Cantidad</label>
           <input
             name="cantidad"
