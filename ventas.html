@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ventas | Copy Copy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/logincss.css" />
+    <link rel="stylesheet" href="css/sistema.css" />
+    <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
+    <script src="js/components/navigation.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/datos.js" defer></script>
+    <script src="js/pages/ventas.js" defer></script>
+    <script src="js/sistema.js" defer></script>
+    <script src="js/estilos.js" defer></script>
+    <script src="js/iconos.js" defer></script>
+  </head>
+  <body class="pagina-sistema" data-page="ventas" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+    <div data-navigation></div>
+    <p id="mensaje" role="status" aria-live="polite" hidden></p>
+    <main id="contenido" tabindex="-1">
+      <h1>Registrar venta</h1>
+      <section aria-labelledby="seccion-1">
+        <h2 id="seccion-1">Agregar al carrito</h2>
+        <form id="sale-form" class="filtros">
+          <label for="producto">Producto</label>
+          <select name="producto" id="producto" required></select>
+          <label for="cantidad">Cantidad</label>
+          <input
+            name="cantidad"
+            id="cantidad"
+            type="number"
+            min="1"
+            max="1000000"
+            step="1"
+            value="1"
+            required
+          />
+          <button type="submit">Agregar</button>
+        </form>
+        <p>
+          Solo aparecen productos con precio y existencias.
+          <a href="inventario.html"
+            ><img
+              class="icono"
+              src="assets/icons/box.svg"
+              alt=""
+              aria-hidden="true"
+              width="20"
+              height="20"
+            />Administrar inventario</a
+          >
+        </p>
+      </section>
+      <section aria-labelledby="seccion-2">
+        <h2 id="seccion-2">Carrito</h2>
+        <div id="carrito"></div>
+        <p class="total">
+          Total:
+          <strong id="total" aria-live="polite" aria-atomic="true"
+            >$0.00</strong
+          >
+        </p>
+        <form id="checkout-form" class="filtros">
+          <label for="pago">Pago recibido (MXN)</label>
+          <input
+            name="pago"
+            id="pago"
+            type="number"
+            min="0"
+            step="0.01"
+            required
+          />
+          <p>Cambio: <strong id="cambio">$0.00</strong></p>
+          <button type="submit" id="cobrar">Confirmar venta</button>
+          <button id="vaciar" type="button">Vaciar carrito</button>
+        </form>
+      </section>
+      <section id="ticket" hidden aria-labelledby="seccion-3">
+        <h2 id="seccion-3">Venta registrada</h2>
+        <div id="ticket-detalle"></div>
+        <button type="button" id="imprimir-ticket">Imprimir comprobante</button>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Copy Copy · Datos guardados en MySQL
+      </p>
+    </footer>
+  </body>
+</html>

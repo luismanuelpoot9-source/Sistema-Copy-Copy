@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventario | Copy Copy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/logincss.css" />
+    <link rel="stylesheet" href="css/sistema.css" />
+    <link rel="stylesheet" href="css/navegacion.css" />
+    <link rel="stylesheet" href="css/animaciones.css" />
+    <link rel="stylesheet" href="css/iconos.css" />
+    <link rel="stylesheet" href="css/tema.css" />
+
+    <!-- Los scripts esperan a que termine de cargar el HTML. -->
+    <script src="js/components/navigation.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/datos.js" defer></script>
+    <script src="js/pages/inventario.js" defer></script>
+    <script src="js/sistema.js" defer></script>
+    <script src="js/estilos.js" defer></script>
+    <script src="js/iconos.js" defer></script>
+  </head>
+  <body class="pagina-sistema" data-page="inventario" hidden>
+    <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+    <div data-navigation></div>
+    <p id="mensaje" role="status" aria-live="polite" hidden></p>
+    <main id="contenido" tabindex="-1">
+      <h1>Inventario</h1>
+      <section aria-labelledby="form-title">
+        <h2 id="form-title">Agregar producto</h2>
+        <form id="product-form">
+          <label for="codigo">Código</label>
+          <input name="codigo" id="codigo" required maxlength="40" />
+          <label for="nombre">Nombre</label>
+          <input name="nombre" id="nombre" required maxlength="150" />
+          <label for="categoria">Categoría</label>
+          <input name="categoria" id="categoria" required maxlength="80" />
+          <label for="unidades">Existencias</label>
+          <input
+            name="unidades"
+            id="unidades"
+            type="number"
+            min="0"
+            max="1000000"
+            step="1"
+            required
+          />
+          <label for="precio">Precio (MXN)</label>
+          <input
+            name="precio"
+            id="precio"
+            type="number"
+            min="0.01"
+            max="1000000"
+            step="0.01"
+            required
+          />
+          <button type="submit">Guardar producto</button>
+          <button type="button" id="cancelar-edicion" hidden>
+            Cancelar edición
+          </button>
+        </form>
+      </section>
+      <section aria-labelledby="seccion-2">
+        <h2 id="seccion-2">Productos</h2>
+        <label for="search-input">Buscar por código, nombre o categoría</label>
+        <input name="search-input" id="search-input" type="search" />
+        <label>
+          <input name="solo-favoritos" id="solo-favoritos" type="checkbox" />
+          Solo favoritos</label
+        >
+        <div id="productos"></div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Copy Copy · Datos guardados en MySQL
+      </p>
+    </footer>
+  </body>
+</html>
