@@ -1,6 +1,7 @@
 // Acceso al sistema. La sesión la valida el servidor PHP contra la tabla `usuario` de MySQL.
 (() => {
   "use strict";
+  if (location.protocol === "file:") return;
   const $ = (s) => document.querySelector(s);
   const login = document.body.dataset.page === "login";
   window.CopyCopy = window.CopyCopy || { pages: {} };

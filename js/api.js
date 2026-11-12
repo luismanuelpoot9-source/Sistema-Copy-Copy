@@ -4,6 +4,13 @@
 (function () {
   'use strict';
 
+  // PHP necesita Apache; un HTML abierto desde el Explorador usa file:.
+  if (location.protocol === 'file:') {
+    const pagina = location.pathname.split('/').pop() || 'login.html';
+    location.replace('http://localhost/Sistema-Copy-Copy-main/' + pagina);
+    return;
+  }
+
   async function peticion(url, metodo, cuerpo) {
     const opciones = {
       method: metodo || 'GET',
