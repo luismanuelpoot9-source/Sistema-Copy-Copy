@@ -1,0 +1,10 @@
+COMO ABRIR COPY COPY DESDE LOS ARCHIVOS
+
+1. Abre Wampserver y asegúrate de que Apache y MariaDB estén iniciados.
+2. En esta carpeta, haz doble clic en ABRIR COPY COPY.
+3. Se abre el sistema local en tu navegador. No necesitas Codex ni el chat.
+
+No abras login.html con doble clic: PHP necesita ejecutarse mediante WAMP para consultar la base de datos.
+
+Los archivos del proyecto y la base de datos están guardados en esta laptop.
+Dirección local: http://localhost/Sistema-Copy-Copy-main/login.html
